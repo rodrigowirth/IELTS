@@ -37,6 +37,8 @@ var getErrorMessage = function(err) {
 exports.create = function(req, res) {
 	var article = new Article(req.body);
 	article.user = req.user;
+	
+	console.log(req.body);
 
 	article.save(function(err) {
 		if (err) {
@@ -62,7 +64,7 @@ exports.read = function(req, res) {
 exports.update = function(req, res) {
 	var article = req.article;
 
-	article = _.extend(article, req.body);
+	article = _.assign(article, req.body);
 
 	article.save(function(err) {
 		if (err) {
