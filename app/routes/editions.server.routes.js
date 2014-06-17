@@ -18,5 +18,5 @@ module.exports = function(app) {
 		.delete(users.requiresLogin, editions.hasAuthorization, editions.delete);
 
 	//Finish by biding the edition middleware
-	app.param('editionID', editions.editionByID);
+	app.param('editionId', editions.editionByID);
 };

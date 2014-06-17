@@ -54,7 +54,8 @@ exports.create = function(req, res) {
 /**
  * Show the current article
  */
-exports.read = function(req, res) {
+exports.read = function (req, res) {
+    console.log(req.article);
 	res.jsonp(req.article);
 };
 

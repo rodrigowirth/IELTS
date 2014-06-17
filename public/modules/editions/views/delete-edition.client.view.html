@@ -1,0 +1,12 @@
+﻿<section data-ng-controller="EditionsController" data-ng-init="findOne()">
+    <br />
+    <div>
+        <h4>Are you sure about deleting the {{edition.title}}?</h4>
+        <a class="btn btn-danger" data-ng-click="remove();">
+            Yes
+        </a>
+        <a class="btn btn-primary" href="/#!/editions">
+            No
+        </a>
+    </div>
+</section>

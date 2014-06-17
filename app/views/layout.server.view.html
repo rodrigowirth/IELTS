@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -52,14 +52,14 @@
 
 	<!--Embedding The User Object-->
 	<script type="text/javascript">
-		var user = {{ user | json | safe }};
+	    var user = {{ user | json | safe }};
 	</script>
 
 	<!--Application JavaScript Files-->
 	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>
 	{% endfor %} 
 
-	{% if process.env.NODE_ENV === 'development' %}
+    {% if process.env.NODE_ENV === 'development' %}
 	<!--Livereload script rendered -->
 	<script type="text/javascript" src="http://localhost:35729/livereload.js"></script>
 

@@ -15,6 +15,7 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+			    'public/lib/jquery-ui-1.10.4.custom/css/ui-lightness/jquery-ui-1.10.4.custom.min.css',
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -25,7 +26,9 @@ module.exports = {
 				'public/lib/angular-sanitize/angular-sanitize.js', 
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
-				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js'
+				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+			    'public/lib/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js',
+			    'public/lib/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js'
 			]
 		},
 		css: [

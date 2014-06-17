@@ -55,7 +55,8 @@ exports.create = function(req, res) {
 /**
  * Show the current edition
  */
-exports.read = function(req, res) {
+exports.read = function (req, res) {
+    console.log(req.edition);
 	res.jsonp(req.edition);
 };
 
@@ -63,8 +64,8 @@ exports.read = function(req, res) {
  * Update an edition
  */
 exports.update = function(req, res) {
-	var edition = req.editiion;
-
+	var edition = req.edition;
+    
 	edition = _.assign(edition, req.body);
 
 	edition.save(function(err){
@@ -116,8 +117,7 @@ exports.list = function(req, res) {
 /**
  * Edition middleware
  */
-exports.editionByID = function(req, res, next, id)
-{
+exports.editionByID = function(req, res, next, id) {    
 	Edition.findById(id).populate('user', 'displayName').exec(function(err, edition) {
 		if (err)
 			return next(err);
