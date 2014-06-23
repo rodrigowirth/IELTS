@@ -1,0 +1,17 @@
+﻿<section data-ng-controller="ApplicantsController" data-ng-init="findOne()">
+    <div class="page-header">
+
+        <div class="pull-right">
+            <a class="btn btn-primary" href="/#!/applicants/{{applicant._id}}/edit">
+                <i class="glyphicon glyphicon-edit"></i>
+            </a>
+            <a class="btn btn-primary" data-ng-click="remove();">
+                <i class="glyphicon glyphicon-trash"></i>
+            </a>
+        </div>
+        <h1 data-ng-bind="applicant.name"></h1>
+        <p>            
+        <span data-ng-bind="applicant.email"></span>
+        </p>
+    </div>
+</section>

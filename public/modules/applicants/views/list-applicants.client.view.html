@@ -1,0 +1,34 @@
+﻿<section data-ng-controller="ApplicantsController" data-ng-init="find()">
+    <div class="page-header">
+        <div class="pull-right">
+            <a class="btn btn-primary" href="/#!/applicants/create">
+                Create new Applicant
+            </a>
+        </div>
+
+        <h1>Applicants</h1>
+    </div>
+
+    <input ng-model="searchText" class="form-control" placeholder="Search">
+    <br/>
+	<div class="list-group">
+	    <div data-ng-repeat="applicant in applicants | filter:searchText" data-ng-href="#!/applicants/{{applicant._id}}" class="list-group-item">
+	        
+            <div class="pull-right">
+                <a class="btn btn-primary" href="/#!/applicants/{{applicant._id}}/edit">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+                <a class="btn btn-primary" href="/#!/applicants/{{applicant._id}}/delete">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </a>
+            </div>
+            			
+	        <h4 class="list-group-item-heading" data-ng-bind="applicant.name"></h4>
+	        <p class="list-group-item-text" data-ng-bind="applicant.email"></p>
+
+	    </div>
+	</div>
+	<div class="alert alert-warning text-center" data-ng-if="applicants.$resolved && !applicants.length">
+		No applicants yet, why don't you <a href="/#!/applicants/create">create one</a>?
+	</div>
+</section>

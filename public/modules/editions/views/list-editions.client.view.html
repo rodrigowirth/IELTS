@@ -14,6 +14,7 @@
     <br />
     <div class="list-group">
         <div data-ng-repeat="edition in editions | filter:searchText" data-ng-href="#!/editions/{{edition._id}}" class="list-group-item">
+            
             <div class="pull-right" data-ng-show="authentication.user._id == edition.user._id">
                 <a class="btn btn-primary" href="/#!/editions/{{edition._id}}/edit">
                     <i class="glyphicon glyphicon-edit"></i>
