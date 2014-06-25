@@ -23,6 +23,10 @@ angular.module('editions').config(['$stateProvider',
 		state('editEdition', {
 		    url: '/editions/:editionId/edit',
 		    templateUrl: 'modules/editions/views/edit-edition.client.view.html'
+		}).
+		state('applicantEdition', {
+		    url: '/editions/:editionId/applicants',
+		    templateUrl: 'modules/editions/views/applicants-edition.client.view.html'
 		});
     }
 ]);
