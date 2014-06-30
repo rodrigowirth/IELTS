@@ -6,6 +6,7 @@
 
 var mongoose = require('mongoose'),
 	Exam = mongoose.model('Exam'),
+    Applicant = mongoose.model('Applicant'),
 	_ = require('lodash');
 
 /**
@@ -36,10 +37,9 @@ var getErrorMessage = function (err) {
 /**
  * Create a exam
  */
-exports.create = function (req, res) {
-    console.log('Ra');
+exports.create = function (req, res) {    
     var exam = new Exam(req.body);
-    exam.user = req.user;
+    exam.user = req.user;    
 
     exam.save(function (err) {
 
@@ -57,6 +57,7 @@ exports.create = function (req, res) {
  * Show the current exam
  */
 exports.read = function (req, res) {
+    console.log(req.exam);
     res.jsonp(req.exam);
 };
 
@@ -64,12 +65,17 @@ exports.read = function (req, res) {
  * Update an exam
  */
 exports.update = function (req, res) {
-    var exam = req.exam;
+    console.log(req.exam);
+    console.log(req.body);
 
+    var exam = req.exam;
     exam = _.assign(exam, req.body);
+    
+    
 
     exam.save(function (err) {
         if (err) {
+            console.log(err);
             return res.send(400, {
                 message: getErrorMessage(err)
             });
@@ -101,7 +107,10 @@ exports.delete = function (req, res) {
  * List of Exams
  */
 exports.list = function (req, res) {    
-    Exam.find().populate('user', 'displayName').exec(function (err, exams) {
+    Exam.find()
+        .populate('user', 'displayName')
+        .populate('applicant', 'name')
+        .exec(function (err, exams) {
         if (err) {
             return res.send(400, {
                 message: getErrorMessage(err)
@@ -117,7 +126,10 @@ exports.list = function (req, res) {
  * Exam middleware
  */
 exports.examByID = function (req, res, next, id) {
-    Exam.findById(id).populate('user', 'displayName').exec(function (err, exam) {
+    Exam.findById(id)
+        .populate('user', 'displayName')
+        .populate('applicant', 'name')
+        .exec(function (err, exam) {
         if (err)
             return next(err);
 

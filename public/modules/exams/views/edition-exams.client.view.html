@@ -1,0 +1,125 @@
+﻿<section data-ng-controller="ExamsController" data-ng-init="loadData()">
+    <div class="page-header">
+
+
+        <h1>First Edition</h1>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <form class="form-horizontal">
+                <fieldset>
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label class="control-label" for="applicant">Applicant</label>
+                                <select id="applicant" class="form-control" ng-model="exam.applicant" ng-options="applicant.name for applicant in applicants track by applicant._id"></select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label" for="listening">Listening</label>
+                                <div class="controls">
+                                    <input type="number" data-ng-model="exam.listening" id="listening" class="form-control" placeholder="Listening">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-offset-2 col-md-5">
+                            <div class="form-group">
+                                <label class="control-label" for="reading">Reading</label>
+                                <div class="controls">
+                                    <input type="number" data-ng-model="exam.reading" id="reading" class="form-control" placeholder="Reading">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label" for="speaking">Speaking</label>
+                                <div class="controls">
+                                    <input type="number" data-ng-model="exam.speaking" id="speaking" class="form-control" placeholder="Speaking">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-offset-2 col-md-5">
+                            <div class="form-group">
+                                <label class="control-label" for="writing">Writing</label>
+                                <div class="controls">
+                                    <input type="number" data-ng-model="exam.writing" id="writing" class="form-control" placeholder="Writing">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <button data-ng-if="!editing" data-ng-click="create()" class="btn btn-default">Create</button>
+                        <button data-ng-if="editing" data-ng-click="update()" class="btn btn-default">Update</button>
+                        <button data-ng-if="editing" data-ng-click="cancel()" class="btn btn-default">Cancel</button>
+
+                        <br />
+                        <br />
+                        <div class="alert alert-info text-center" data-ng-if="message">
+                            <strong data-ng-bind="message"></strong>
+                        </div>
+                        <div class="alert alert-danger text-center" data-ng-if="error">
+                            <strong data-ng-bind="error"></strong>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+
+        <div class="col-md-9">
+            <label class="control-label">Search for an Applicant</label>
+            <input ng-model="searchText" class="form-control" placeholder="Search">
+            <br />
+
+            <div class="list-group" disabled="disabled">
+                <div data-ng-repeat="exam in exams | filter:searchText" data-ng-href="#!/editions/{{edition._id}}" class="list-group-item">
+
+                    <div class="pull-right">
+                        <button class="btn btn-primary" data-ng-click="edit(exam)" data-ng-disabled="editing">
+                            <i class="glyphicon glyphicon-edit"></i>
+                        </button>
+                        <a class="btn btn-primary" data-ng-click="remove(exam)" data-ng-disabled="editing">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </div>
+
+                    <h4 class="list-group-item-heading" data-ng-bind="exam.applicant.name"></h4>
+                    <span class="label {{exam | finalmarklabel}}">{{exam | finalmark}}</span>
+                    -
+                    <span class="label {{exam.listening | label}}">Listening: {{exam.listening | mark}}</span>
+                    <span class="label {{exam.reading | label}}">Reading: {{exam.reading | mark}}</span>
+                    <span class="label {{exam.speaking | label}}">Speaking: {{exam.speaking | mark}}</span>
+                    <span class="label {{exam.writing | label}}">Writing {{exam.writing | mark}}</span>
+                </div>
+            </div>
+
+            <div class="alert alert-warning text-center" data-ng-if="editions.$resolved && !editions.length">
+                No editions yet, why don't you <a href="/#!/editions/create">create one</a>?
+            </div>
+        </div>
+
+    </div>
+
+</section>

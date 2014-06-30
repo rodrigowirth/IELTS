@@ -15,7 +15,7 @@
         <div data-ng-repeat="edition in editions | filter:searchText" data-ng-href="#!/editions/{{edition._id}}" class="list-group-item">
 
             <div class="pull-right" data-ng-show="authentication.user._id == edition.user._id">
-                <a class="btn btn-primary" href="/#!/editions/{{edition._id}}/applicants">
+                <a class="btn btn-primary" href="/#!/exams/{{edition._id}}/edition">
                     Applicants
                 </a>
                 <a class="btn btn-primary" href="/#!/editions/{{edition._id}}/edit">

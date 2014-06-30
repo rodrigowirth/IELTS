@@ -65,11 +65,11 @@ exports.read = function (req, res) {
  */
 exports.update = function(req, res) {
 	var edition = req.edition;
-    
-	edition = _.assign(edition, req.body);
+    edition = _.assign(edition, req.body);    
 
 	edition.save(function(err){
-		if (err) {
+	    if (err) {
+	        console.log(err);
 			return res.send(400, {
 				message: getErrorMessage(err)
 			});

@@ -10,11 +10,11 @@ var mongoose = require('mongoose'),
  * Exam Schema
  */
 var ExamSchema = new Schema({
-    applicantId : {
+    applicant : {
         type: Schema.ObjectId,
         ref: 'Applicant'
     },
-    editionId : {
+    edition : {
         type: Schema.ObjectId,
         ref: 'Edition'
     },
