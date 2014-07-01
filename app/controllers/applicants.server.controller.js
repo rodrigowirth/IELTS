@@ -5,6 +5,7 @@
  */
 var mongoose = require('mongoose'),
 	Applicant = mongoose.model('Applicant'),
+    Exam = mongoose.model('Exam'),
 	_ = require('lodash');
 
 /**
@@ -107,6 +108,59 @@ exports.list = function (req, res) {
                 res.jsonp(applicants);
             }
         });
+};
+
+/**
+ * List of availables applicants for an edition
+ */
+function filterUsedApplicants(req, res, applicants, exams) {
+    var filteredApplicants;
+    console.log(exams);
+    exams.forEach(function (exam) {        
+
+        applicants = applicants.filter(function (applicant) {            
+            return !applicant._id.equals(exam.applicant._id);
+        });
+               
+    });
+    
+    res.jsonp(applicants);
+}
+
+function loadExams(req, res, editionId, applicants) {
+    var exams;
+    
+    Exam.find({ edition: editionId })
+        .populate('applicant', '_id')
+        .exec(function (err, result) {
+            if (err) {
+                return res.send(400, {
+                    message: getErrorMessage(err)
+                });
+            } else {
+                exams = result;
+                filterUsedApplicants(req, res, applicants, exams);
+            }
+        });
+}
+
+exports.listAvailablesForEdition = function (req, res) {
+    var editionId = req.param('id');
+
+    var applicants;
+
+    Applicant.find()
+        .sort('name')
+        .exec(function (err, result) {
+            if (err) {
+                return res.send(400, {
+                    message: getErrorMessage(err)
+                });
+            } else {
+                applicants = result;
+                loadExams(res, res, editionId, applicants);
+            }
+        });        
 };
 
 /**

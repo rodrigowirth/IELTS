@@ -12,3 +12,9 @@ angular.module('applicants').factory('Applicants', ['$resource',
 	    });
 	}
 ]);
+
+angular.module('applicants').factory('ApplicantsForExam', ['$resource',
+	function ($resource) {
+	    return $resource('applicants/edition/:id');
+	}
+]);

@@ -1,8 +1,8 @@
-﻿<section data-ng-controller="ExamsController" data-ng-init="loadData()">
+﻿<section data-ng-controller="ExamsController" data-ng-init="load()">
     <div class="page-header">
 
 
-        <h1>First Edition</h1>
+        <h1 data-ng-bind="edition.title"></h1>
     </div>
 
     <div class="row">
@@ -17,7 +17,7 @@
 
                             <div class="form-group">
                                 <label class="control-label" for="applicant">Applicant</label>
-                                <select id="applicant" class="form-control" ng-model="exam.applicant" ng-options="applicant.name for applicant in applicants track by applicant._id"></select>
+                                <select id="applicant" class="form-control" data-ng-model="exam.applicant" data-ng-disabled="editing" ng-options="applicant.name for applicant in applicants track by applicant._id"></select>
                             </div>
 
                         </div>

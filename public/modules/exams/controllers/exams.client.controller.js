@@ -1,7 +1,7 @@
 ﻿'use strict';
 
-angular.module('exams').controller('ExamsController', ['$scope', '$stateParams', '$location', '$timeout', 'Authentication', 'Exams', 'Applicants',
-	function ($scope, $stateParams, $location, $timeout, Authentication, Exams, Applicants) {
+angular.module('exams').controller('ExamsController', ['$scope', '$stateParams', '$location', '$timeout', 'Authentication', 'Exams', 'Applicants', 'ApplicantsForExam', 'Editions',
+	function ($scope, $stateParams, $location, $timeout, Authentication, Exams, Applicants, ApplicantsForExam, Editions) {
 	    $scope.authentication = Authentication;
 
 	    $scope.create = function () {
@@ -32,6 +32,7 @@ angular.module('exams').controller('ExamsController', ['$scope', '$stateParams',
 
 	        exam.$save(function (response) {
 	            loadData();
+	            $scope.exam = null;
 	            $scope.exams.push(exam);
 	            showMessage('Exam saved');
 	        }, function (errorResponse) {
@@ -39,11 +40,15 @@ angular.module('exams').controller('ExamsController', ['$scope', '$stateParams',
 	        });
 	    };
 
-	    $scope.loadData = loadData();
+	    $scope.load = function() {
+	        loadData();
+	    };
 
 	    $scope.remove = function (exam) {
 	        if (exam) {
 	            exam.$remove();
+
+	            $scope.applicants.push(exam.applicant);
 
 	            for (var i in $scope.exams) {
 	                if ($scope.exams[i] === exam) {
@@ -59,6 +64,7 @@ angular.module('exams').controller('ExamsController', ['$scope', '$stateParams',
 	    $scope.edit = function (exam) {
 	        $scope.editing = true;
 	        $scope.exam = clone(exam);
+	        $scope.applicants.push(exam.applicant);
 	    };
 
 	    $scope.update = function () {
@@ -67,6 +73,7 @@ angular.module('exams').controller('ExamsController', ['$scope', '$stateParams',
 	        exam.$update(function () {
 	            $scope.editing = false;
 	            $scope.exam = null;
+	            $scope.applicants.pop();
 
 	            loadExams();
 	            showMessage('Exam updated');
@@ -76,8 +83,9 @@ angular.module('exams').controller('ExamsController', ['$scope', '$stateParams',
 	    };
 
 	    $scope.cancel = function () {
-	        $scope.editing = false;
+	        $scope.applicants.pop();	        
 	        $scope.exam = null;
+	        $scope.editing = false;
 	    };
 
 	    function showMessage(message) {
@@ -88,9 +96,13 @@ angular.module('exams').controller('ExamsController', ['$scope', '$stateParams',
 	        }, 1500);
 	    }
 
-	    function loadData() {
-	        Applicants.query(function (applicants) {
+	    function loadData() {            
+	        ApplicantsForExam.query({id: $stateParams.editionId}, function (applicants) {
 	            $scope.applicants = applicants;
+	        });
+
+	        $scope.edition = Editions.get({
+	            editionId: $stateParams.editionId
 	        });
 
 	        loadExams();
@@ -113,26 +125,6 @@ angular.module('exams').controller('ExamsController', ['$scope', '$stateParams',
 	        var c = new Clone();
 	        c.constructor = Clone;
 	        return c;
-	    }
-
-	    //$scope.update = function () {
-	    //    var edition = $scope.edition;
-
-	    //    edition.$update(function () {
-	    //        $location.path('editions/' + edition._id);
-	    //    }, function (errorResponse) {
-	    //        $scope.error = errorResponse.data.message;
-	    //    });
-	    //};
-
-	    //$scope.find = function () {
-	    //    $scope.editions = Editions.query();
-	    //};
-
-	    //$scope.findOne = function () {
-	    //    $scope.edition = Editions.get({
-	    //        editionId: $stateParams.editionId
-	    //    });
-	    //};
+	    }	
 	}
 ]);

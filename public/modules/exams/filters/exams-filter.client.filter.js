@@ -40,7 +40,7 @@ angular.module('exams').filter('finalmark', [
             var sum = exam.listening + exam.reading + exam.writing + exam.speaking;
             var avarage = sum * 9 / 160;
             return avarage.toFixed(1);
-        }
+        };
     }
 ]);
 
@@ -49,7 +49,7 @@ angular.module('exams').filter('finalmarklabel', [
         return function(exam) {
             var sum = exam.listening + exam.reading + exam.writing + exam.speaking;
             var avarage = sum * 9 / 160;
-            
+
             if (avarage <= 3)
                 return 'label-danger';
 
@@ -63,6 +63,6 @@ angular.module('exams').filter('finalmarklabel', [
                 return 'label-success';
 
             return 'label-default';
-        }
+        };
     }
 ]);
