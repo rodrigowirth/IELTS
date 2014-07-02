@@ -89,12 +89,12 @@ exports.update = function (req, res) {
 /**
  * Delete an exam
  */
-exports.delete = function (req, res) {
+exports.delete = function (req, res) {    
     var exam = req.exam;
 
     exam.remove(function (err) {
-        if (err) {
-            return res.send(400, {
+        if (err) {            
+            return res.send(400, {                
                 message: getErrorMessage(err)
             });
         } else {
@@ -120,6 +120,26 @@ exports.list = function (req, res) {
         }
 
     });
+};
+
+/**
+* List of Exmas for an Edition
+*/
+exports.listByEdition = function (req, res) {
+    var editionId = req.param('id');
+
+    Exam.find({'edition' : editionId})
+        .populate('applicant', 'name')
+        .sort('name')
+        .exec(function (err, exams) {
+            if (err) {
+                return res.send(400, {
+                    message: getErrorMessage(err)
+                });
+            } else {
+                res.jsonp(exams);
+            }
+        });
 };
 
 /**

@@ -12,6 +12,9 @@ module.exports = function (app) {
 		.get(exams.list)
 		.post(exams.create);
 
+    app.route('/exams/edition/:id')
+        .get(exams.listByEdition);
+
     app.route('/exams/:examId')
 		.get(exams.read)
 		.put(users.requiresLogin, exams.hasAuthorization, exams.update)
