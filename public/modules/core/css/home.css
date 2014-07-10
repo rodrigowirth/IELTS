@@ -1,0 +1,25 @@
+﻿.welcome {
+    text-align: center;
+}
+
+.welcome img {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.signin {
+    margin-top: 30px;
+}
+
+.signin img {    
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.flag {
+    max-width: 100px;
+}
+
+.ielts {
+    max-width: 300px;
+}
