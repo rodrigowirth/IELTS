@@ -5,13 +5,14 @@ angular.module('editions').controller('EditionsController', ['$scope', '$statePa
 		$scope.authentication = Authentication;
 
 		$scope.create = function () {
-			console.log('passhere');
+			
 			var edition = new Editions({
 				title: this.title,
 				date: this.date
 			});
+		    
 			edition.$save(function(response) {
-				$location.path('editions/' + response._id);
+				$location.path('editions');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
@@ -39,7 +40,7 @@ angular.module('editions').controller('EditionsController', ['$scope', '$statePa
 			var edition = $scope.edition;
 			
 			edition.$update(function () {
-				$location.path('editions/' + edition._id);
+				$location.path('editions');
 			}, function (errorResponse) {                
 				$scope.error = errorResponse.data.message;
 			});
