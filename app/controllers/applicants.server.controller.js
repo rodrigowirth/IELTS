@@ -82,6 +82,15 @@ exports.update = function (req, res) {
 exports.delete = function (req, res) {
     var applicant = req.applicant;
 
+    Exam.find({ applicant: applicant._id })
+        .remove(function (err) {
+            if (err) {
+                return res.send(400, {
+                    message: getErrorMessage(err)
+                });
+            }
+        });
+
     applicant.remove(function (err) {
         if (err) {
             return res.send(400, {
@@ -98,7 +107,7 @@ exports.delete = function (req, res) {
  */
 exports.list = function (req, res) {
     Applicant.find().sort('-created')
-        .populate('user', 'displayName')        
+        .populate('user', 'displayName')
         .exec(function (err, applicants) {
             if (err) {
                 return res.send(400, {
@@ -115,21 +124,21 @@ exports.list = function (req, res) {
  */
 function filterUsedApplicants(req, res, applicants, exams) {
     var filteredApplicants;
-    console.log(exams);
-    exams.forEach(function (exam) {        
+    exams.forEach(function (exam) {
+        if (exams.applicant !== null) {
+            applicants = applicants.filter(function (applicant) {
+                return !applicant._id.equals(exam.applicant._id);
+            });
+        }
 
-        applicants = applicants.filter(function (applicant) {            
-            return !applicant._id.equals(exam.applicant._id);
-        });
-               
     });
-    
+
     res.jsonp(applicants);
 }
 
 function loadExams(req, res, editionId, applicants) {
     var exams;
-    
+
     Exam.find({ edition: editionId })
         .populate('applicant', '_id')
         .exec(function (err, result) {
@@ -160,7 +169,7 @@ exports.listAvailablesForEdition = function (req, res) {
                 applicants = result;
                 loadExams(res, res, editionId, applicants);
             }
-        });        
+        });
 };
 
 /**

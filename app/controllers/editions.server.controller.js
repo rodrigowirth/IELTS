@@ -6,6 +6,7 @@
 
 var mongoose = require('mongoose'),
 	Edition = mongoose.model('Edition'),
+    Exam = mongoose.model('Exam'),
 	_ = require('lodash');
 
 /**
@@ -85,7 +86,16 @@ exports.update = function(req, res) {
  */
 exports.delete = function(req, res) 
 {
-	var edition = req.edition;
+    var edition = req.edition;
+    
+    Exam.find({ edition: edition._id })
+        .remove(function (err) {
+            if (err) {
+                return res.send(400, {
+                    message: getErrorMessage(err)
+                });
+            }
+        });
 
 	edition.remove(function(err) {
 		if (err) {
