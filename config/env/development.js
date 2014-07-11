@@ -3,7 +3,7 @@
 module.exports = {
 	db: 'mongodb://localhost/ielts-dev',
 	app: {
-		title: 'IELTS - Development Environment'
+		title: 'Tribalingua App - Development Environment'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',

@@ -2,9 +2,9 @@
 
 module.exports = {
 	app: {
-		title: 'IELTS',
+		title: 'Tribalingua App',
 		description: 'Y',
-		keywords: 'IELTS, MEAN, Bravi'
+		keywords: 'Tribalingua, IELTS, Bravi'
 	},
 	port: process.env.PORT || 3000,
 	templateEngine: 'swig',
@@ -15,7 +15,7 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-			    'public/lib/jquery-ui-1.10.4.custom/css/ui-lightness/jquery-ui-1.10.4.custom.min.css',
+			    'public/lib/jquery-ui-1.10.4.custom/css/ui-lightness/jquery-ui-1.10.4.custom.min.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
