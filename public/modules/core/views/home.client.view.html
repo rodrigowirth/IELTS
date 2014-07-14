@@ -2,35 +2,23 @@
 
 <section data-ng-controller="HomeController">
 
-    <div class="row">
-        <div class="col-md-12 welcome">
-            <h1>Welcome to Tribalingua App</h1>
-            <img class="img-responsive" src="modules/core/img/tribalingua-logo.png" />
+    <div class="container">
+        <div class="jumbotron">
+            <img class="img-responsive pull-right logo" src="modules/core/img/tribalingua-logo.png" />
+            <h1>Welcome to Tribalingua!</h1>
+            <p>
+                If you are part of the Bravi Software Staff, please, sign in with your Bravi Software account, by clicking on the button below.
+            </p>
+            <p>
+                <a class="btn btn-primary btn-lg" href="/auth/google">
+                    <img src="modules/core/img/google.png" />
+                    Sign in with Google
+                </a>
+                <img class="img-responsive pull-right flag" src="modules/core/img/uk-flag.png" />
+                <img class="img-responsive pull-right flag" src="modules/core/img/brazil-flag.png" />
+            </p>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-12 signin">
-            <a href="auth/google">
-                <img class="img-responsive" src="modules/core/img/sign-in-with-google.png" />
-            </a>
-        </div>
-    </div>
-
-    <div class="row clearfix visible-md visible-lg">
-        <div class="col-md-6 pull-left">
-            <img class="img-responsive pull-left flag" src="modules/core/img/uk-flag.png" />
-            <img class="img-responsive pull-left flag" src="modules/core/img/brazil-flag.png" />
-        </div>
-
-        <div class="col-md-6">
-            <img class="img-responsive pull-right ielts" src="modules/core/img/ielts.jpg" />
-        </div>
-    </div>
-
-    <br>
-    Enjoy &amp; Keep Us Updated.
-    <br>
 
     <div class="row">
         <a href="#!/editions">Editions

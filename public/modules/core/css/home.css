@@ -17,9 +17,13 @@
 }
 
 .flag {
-    max-width: 100px;
+    max-width: 50px;
 }
 
 .ielts {
     max-width: 300px;
+}
+
+.logo {
+    max-width: 100px;
 }
