@@ -28,7 +28,11 @@ module.exports = {
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 			    'public/lib/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js',
-			    'public/lib/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js'
+			    'public/lib/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js',
+			    'public/lib/chartjs/Chart.min.js',
+			    'public/lib/angles/angles.js',
+			    'public/lib/d3/d3.min.js',
+			    'public/lib/angular-charts/dist/angular-charts.min.js'
 			]
 		},
 		css: [
