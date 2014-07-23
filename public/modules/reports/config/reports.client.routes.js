@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 //Setting up route
-angular.module('reports').config(['$stateProvider',
+angular.module('Reports').config(['$stateProvider',
     function ($stateProvider) {
         $stateProvider.
         state('reportEditionAvg', {

@@ -13,7 +13,7 @@ angular.module('exams').factory('Exams', ['$resource',
 	            },
 	            getByEdition: {
 	                url: 'exams/edition/:id',
-	                method: 'GET',
+	                method: 'GET',	                
 	                isArray: true
 	            }
 	        });

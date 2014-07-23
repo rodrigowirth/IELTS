@@ -1,7 +1,7 @@
 'use strict';
 
 // Configuring the Articles module
-angular.module('reports').run(['Menus',
+angular.module('Reports').run(['Menus',
     function (Menus) {
         // Set top bar menu items
         Menus.addMenuItem('topbar', 'Reports', 'reports', 'dropdown', '/reports(/create)?');

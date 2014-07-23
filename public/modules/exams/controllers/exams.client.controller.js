@@ -111,7 +111,6 @@ angular.module('exams').controller('ExamsController', ['$scope', '$stateParams',
 	    function loadExams() {
 	        Exams.getByEdition({ id: $stateParams.editionId }, function (exams) {
 	            $scope.exams = exams;
-	            //console.log(exams);
 	        });
 	    }
 
