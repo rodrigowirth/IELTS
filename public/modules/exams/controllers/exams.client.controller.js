@@ -124,6 +124,6 @@ angular.module('exams').controller('ExamsController', ['$scope', '$stateParams',
 	        var c = new Clone();
 	        c.constructor = Clone;
 	        return c;
-	    }	
+	    }	    
 	}
 ]);

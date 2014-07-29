@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-angular.module('Reports').controller('ReportsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Editions', 'Exams',
+angular.module('Reports').controller('EditionAvgReportsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Editions', 'Exams',
 	function ($scope, $stateParams, $location, Authentication, Editions, Exams) {
 	    $scope.authentication = Authentication;
 

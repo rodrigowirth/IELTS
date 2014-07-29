@@ -6,6 +6,6 @@ angular.module('Reports').run(['Menus',
         // Set top bar menu items
         Menus.addMenuItem('topbar', 'Reports', 'reports', 'dropdown', '/reports(/create)?');
         Menus.addSubMenuItem('topbar', 'reports', 'Avarage', 'reports/editionavg');
-        Menus.addSubMenuItem('topbar', 'reports', 'Evolution', '/');
+        Menus.addSubMenuItem('topbar', 'reports', 'Evolution', 'reports/evolution');
     }
 ]);

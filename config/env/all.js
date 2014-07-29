@@ -32,7 +32,8 @@ module.exports = {
 			    'public/lib/chartjs/Chart.min.js',
 			    'public/lib/angles/angles.js',
 			    'public/lib/d3/d3.min.js',
-			    'public/lib/angular-charts/dist/angular-charts.min.js'
+			    'public/lib/angular-charts/dist/angular-charts.min.js',
+			    'public/lib/rsvp/rsvp.min.js'
 			]
 		},
 		css: [
