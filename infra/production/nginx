@@ -1,4 +1,4 @@
-upstream bravi-horas {
+upstream tribalingua {
   {% for bind in portBindings['3000/tcp'] %}server {{ bind.HostIp }}:{{ bind.HostPort }};{% endfor %}
 }
 
@@ -25,6 +25,6 @@ server {
     proxy_set_header X-NginX-Proxy true;
 
     proxy_redirect off;
-    proxy_pass http://bravi-horas/;
+    proxy_pass http://tribalingua/;
   }
 }
