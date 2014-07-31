@@ -2,6 +2,6 @@
 
 mongod --fork --dbpath /data/db --logpath /data/db-log
 
-forever start -l /tmp/out.log -c "node server.js" /src/
+forever start -l /tmp/out.log -c "grunt" /src/
 
 /bin/bash
