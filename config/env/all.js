@@ -7,6 +7,7 @@ module.exports = {
 		keywords: 'Tribalingua, IELTS, Bravi'
 	},
 	port: process.env.PORT || 3000,
+	host: process.env.APP_HOST || '0.0.0.0',
 	templateEngine: 'swig',
 	sessionSecret: 'MEAN',
 	sessionCollection: 'sessions',
