@@ -55,7 +55,7 @@ module.exports = {
 	google: {
 	    clientID: process.env.GOOGLE_ID || '328279314354-oskdj2cu2k6199ildi7bjdur59e38bk8.apps.googleusercontent.com',
 		clientSecret: process.env.GOOGLE_SECRET || '0htpChQEEavbyFmOs4G2ThBh',
-		callbackURL: 'http://localhost:3000/auth/google/callback'
+		callbackURL: 'https://tribalingua.bravi.com.br/auth/google/callback'
 	},
 	linkedin: {
 		clientID: process.env.LINKEDIN_ID || 'APP_ID',
