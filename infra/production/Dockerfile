@@ -5,14 +5,12 @@ RUN /usr/local/bin/setup_timezone
 
 ENV NODE_ENV production
 
-RUN mkdir /.ssh
-RUN chmod 700 /root/.ssh/*
-
 ADD . /src
 ADD .bowerrc /src/.bowerrc
 WORKDIR /src
 
-RUN cd /src; npm --unsafe-perm install
+# forces install all dependences
+RUN cd /src; NODE_ENV=development npm --unsafe-perm install
 
 ADD ./infra/production/docker.sh /docker.sh
 RUN chmod +x /docker.sh
