@@ -7,6 +7,7 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.min.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+				'public/lib/jquery-ui-1.10.4.custom/css/ui-lightness/jquery-ui-1.10.4.custom.min.css'
 			],
 			js: [
 				'public/lib/angular/angular.min.js',
@@ -17,7 +18,14 @@ module.exports = {
 				'public/lib/angular-sanitize/angular-sanitize.js', 
 				'public/lib/angular-ui-router/release/angular-ui-router.min.js',
 				'public/lib/angular-ui-utils/ui-utils.min.js',
-				'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js'
+				'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
+				'public/lib/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js',
+		    'public/lib/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js',
+		    'public/lib/chartjs/Chart.min.js',
+		    'public/lib/angles/angles.js',
+		    'public/lib/d3/d3.min.js',
+		    'public/lib/angular-charts/dist/angular-charts.min.js',
+		    'public/lib/rsvp/rsvp.min.js'
 			]
 		},
 		css: 'public/dist/application.min.css',
