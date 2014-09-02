@@ -12,7 +12,8 @@ ADD . /src
 ADD .bowerrc /src/.bowerrc
 WORKDIR /src
 
-RUN cd /src; npm --unsafe-perm install
+# forces install all dependences
+RUN cd /src; NODE_ENV=development npm --unsafe-perm install
 
 ADD ./infra/production/docker.sh /docker.sh
 RUN chmod +x /docker.sh
