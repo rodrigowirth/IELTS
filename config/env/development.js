@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://tribalingua:tribalingua2030@ds052827.mongolab.com:52827/tribalingua',
+    db: 'mongodb://localhost/ielts-dev',
 	app: {
 		title: 'Tribalingua App - Development Environment'
 	},

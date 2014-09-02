@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://tribalingua:tribalingua2030@ds052827.mongolab.com:52827/tribalingua',
+    db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://localhost/ielts',
 	assets: {
 		lib: {
 			css: [
