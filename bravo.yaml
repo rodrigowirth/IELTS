@@ -1,27 +1,6 @@
 ---
 
 image: 'docker.bravi.com.br/tribalingua'
-development:
-  serverName: 'tribalingua'
-  tag: 'latest'
-  create:
-    AttachStdin: true
-    AttachStdout: true
-    AttachStderr: true
-    OpenStdin: true
-    Tty: true
-    Volumes:
-      '/data/db': {}
-      '/src': {}
-  run:
-    Binds:
-      - '/srv/tribalingua/data/db:/data/db'
-      - '/vagrant/docker/tribalingua:/src'
-    PortBindings:
-      '3000/tcp':
-        - HostIp: '0.0.0.0'
-      '27017/tcp':
-        - HostIp: '0.0.0.0'
 
 production:
   serverName: 'tribalingua.bravi.com.br'
