@@ -13,9 +13,11 @@ production:
     Tty: true
     Volumes:
       '/data/db': {}
+      '/src/public': {}
   run:
     Binds:
       - '/srv/tribalingua/data/db:/data/db'
+      - '/srv/tribalingua/public:/src/public'
     PortBindings:
       '3000/tcp':
         - HostIp: '127.0.0.1'
