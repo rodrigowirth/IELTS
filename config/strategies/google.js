@@ -19,7 +19,7 @@ module.exports = function() {
 		},
 		function (req, accessToken, refreshToken, profile, done) {
 
-		    if (profile.emails[0].value !== 'rodrigo.wirth@bravisoftware.com') {
+		    if (profile.emails[0].value !== 'rodrigo.wirth@bravisoftware.com' && profile.emails[0].value !== 'jon.holloway@bravisoftware.com') {
 		        return done({
 		            status: 401,
 		            message: 'You have to use a Bravi Software account.'
