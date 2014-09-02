@@ -149,8 +149,11 @@ module.exports = function(grunt) {
 		var init = require('./config/init')();
 		var config = require('./config/config');
 
-		grunt.config.set('applicationJavaScriptFiles', config.assets.js);
-		grunt.config.set('applicationCSSFiles', config.assets.css);
+		var jsFiles = config.assets.js;
+		var	cssFiles = config.assets.css;
+
+		grunt.config.set('applicationJavaScriptFiles', config.assets.build ? config.assets.build.js : config.assets.js);
+		grunt.config.set('applicationCSSFiles', config.assets.build ? config.assets.build.css : config.assets.css);
 	});
 
 	// Default task(s).
