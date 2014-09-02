@@ -5,9 +5,6 @@ RUN /usr/local/bin/setup_timezone
 
 ENV NODE_ENV production
 
-RUN mkdir /.ssh
-RUN chmod 700 /root/.ssh/*
-
 ADD . /src
 ADD .bowerrc /src/.bowerrc
 WORKDIR /src
