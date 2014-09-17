@@ -34,7 +34,11 @@ module.exports = {
 			    'public/lib/angles/angles.js',
 			    'public/lib/d3/d3.min.js',
 			    'public/lib/angular-charts/dist/angular-charts.min.js',
-			    'public/lib/rsvp/rsvp.min.js'
+			    'public/lib/rsvp/rsvp.min.js',
+			    'public/lib/angular-google-chart/ng-google-chart.js',
+			    'public/lib/angular-google-chart/partials/annotation.js',
+			    'public/lib/angular-google-chart/partials/fat.js',
+			    'public/lib/angular-google-chart/partials/generic.js'
 			]
 		},
 		css: [
