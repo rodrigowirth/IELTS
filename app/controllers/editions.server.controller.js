@@ -57,7 +57,6 @@ exports.create = function(req, res) {
  * Show the current edition
  */
 exports.read = function (req, res) {
-    console.log(req.edition);
 	res.jsonp(req.edition);
 };
 

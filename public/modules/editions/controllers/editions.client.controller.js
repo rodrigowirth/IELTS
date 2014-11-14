@@ -37,8 +37,7 @@ angular.module('editions').controller('EditionsController', ['$scope', '$statePa
 	    };
 
 	    $scope.update = function () {
-	        var edition = $scope.edition;
-
+	        var edition = $scope.edition;	        
 	        edition.$update(function () {
 	            $location.path('editions');
 	        }, function (errorResponse) {
