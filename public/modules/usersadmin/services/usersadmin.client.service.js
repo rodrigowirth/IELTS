@@ -4,7 +4,7 @@
 angular.module('usersadmin').factory('UsersAdmin', ['$resource',
 	function ($resource) {
 	    return $resource('usersadmin/:userId', {
-	        editionId: '@_id'
+	        userId: '@_id'
 	    }, {
 	        update: {
 	            method: 'PUT'
