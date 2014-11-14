@@ -1,0 +1,26 @@
+﻿<section data-ng-controller="UsersAdminController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Users</h1>
+    </div>
+
+    <input ng-model="searchText" class="form-control" placeholder="Search">
+    <br />
+    <div class="list-group">
+        <div data-ng-repeat="user in users | filter:searchText" data-ng-href="#!/users/{{user._id}}" class="list-group-item">
+
+            <div class="pull-right">
+                <a class="btn btn-primary" data-ng-click="setAsAdmin(user._id)">
+                    Set as admin
+                </a>
+                <a class="btn btn-primary" data-ng-click="removeAdminRole(user)">
+                    Remove admin role
+                </a>
+            </div>
+
+            <span class="glyphicon glyphicon-star pull-left"></span>
+            <h4 class="list-group-item-heading" data-ng-bind="user.displayName"></h4>
+            <p class="list-group-item-text" data-ng-bind="user.email"></p>
+
+        </div>
+    </div>
+</section>
