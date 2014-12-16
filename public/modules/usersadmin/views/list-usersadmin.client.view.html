@@ -9,15 +9,15 @@
         <div data-ng-repeat="user in users | filter:searchText" data-ng-href="#!/users/{{user._id}}" class="list-group-item">
 
             <div class="pull-right">
-                <a class="btn btn-primary" data-ng-click="setAsAdmin(user._id)">
+                <a class="btn btn-primary" data-ng-hide="isAdmin(user)" data-ng-click="setAsAdmin(user)">
                     Set as admin
                 </a>
-                <a class="btn btn-primary" data-ng-click="setAsNotAdmin(user._id)">
+                <a class="btn btn-primary" data-ng-show="isAdmin(user)" data-ng-click="setAsNotAdmin(user)">
                     Remove admin role
                 </a>
             </div>
 
-            <span class="glyphicon glyphicon-star pull-left"></span>
+            <span class="label label-primary pull-left" data-ng-show="isAdmin(user)" style="margin-right: 10px">Admin</span>
             <h4 class="list-group-item-heading" data-ng-bind="user.displayName"></h4>
             <p class="list-group-item-text" data-ng-bind="user.email"></p>
 
