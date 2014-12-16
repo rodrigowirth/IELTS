@@ -142,6 +142,23 @@ exports.listByEdition = function (req, res) {
         });
 };
 
+exports.listByUser = function (req, res) {
+    var applicantId = req.param('id');
+
+    Exam.find({ 'applicant': applicantId })
+        .populate('applicant', 'name')
+        .sort('name')
+        .exec(function (err, exams) {
+            if (err) {
+                return res.send(400, {
+                    message: getErrorMessage(err)
+                });
+            } else {
+                res.jsonp(exams);
+            }
+        });
+};
+
 /**
  * Exam middleware
  */
