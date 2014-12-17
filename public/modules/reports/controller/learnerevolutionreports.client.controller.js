@@ -127,9 +127,7 @@ angular.module('Reports').controller('LearnerEvolutionReportsController', ['$sco
         }
 
         function loadChart() {            
-            var sortedEditions = $scope.selectedEditions.sort(compareEditions);
-
-            console.log(sortedEditions);
+            var sortedEditions = $scope.selectedEditions.sort(compareEditions);                        
 
             if (sortedEditions.length > 0)
                 loadExams(sortedEditions);

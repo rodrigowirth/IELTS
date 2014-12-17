@@ -147,7 +147,7 @@ exports.listByApplicant = function (req, res) {
 
     Exam.find({ 'applicant': applicantId })
         .populate('applicant', 'name')
-        .populate('edition', 'title')
+        .populate('edition')        
         .sort('name')
         .exec(function (err, exams) {
             if (err) {
