@@ -15,6 +15,10 @@ angular.module('Reports').config(['$stateProvider',
         state('reportLearnerEvolution', {
             url: '/reports/learnerevolution',
             templateUrl: 'modules/reports/views/learnerevolution-reports.client.view.html'
+        }).
+        state('reportLearnerForAdmin', {
+            url: '/reports/learner',
+            templateUrl: 'modules/reports/views/learnerforadmin-reports.client.view.html'
         });
     }
 ]);
