@@ -16,6 +16,13 @@
         </div>
 
         <div class="col-lg-9">
+            <table class="table table-striped">
+                <tr ng-repeat="exam in exams">
+                    <td>{{exam.edition.title}}</td>
+                    <td>{{exam | finalmark}}</td>
+                </tr>
+            </table>
+
             <div google-chart chart="chartObject" class='chart' style="height: 500px; width: 100%"></div>
         </div>
     </div>
