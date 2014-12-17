@@ -13,11 +13,11 @@ angular.module('Reports').config(['$stateProvider',
             templateUrl: 'modules/reports/views/evolution-reports.client.view.html'
         }).
         state('reportLearnerEvolution', {
-            url: '/reports/learnerevolution',
+            url: '/reports/myevolution',
             templateUrl: 'modules/reports/views/learnerevolution-reports.client.view.html'
         }).
         state('reportLearnerForAdmin', {
-            url: '/reports/learner',
+            url: '/reports/applicants',
             templateUrl: 'modules/reports/views/learnerforadmin-reports.client.view.html'
         });
     }
