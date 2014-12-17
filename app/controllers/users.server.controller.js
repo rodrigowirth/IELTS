@@ -241,7 +241,9 @@ exports.userByID = function(req, res, next, id) {
  * Require login routing middleware
  */
 exports.requiresLogin = function(req, res, next) {
-	if (!req.isAuthenticated()) {
+    console.log('Ra');
+
+    if (!req.isAuthenticated()) {
 		return res.send(401, {
 			message: 'User is not logged in'
 		});
@@ -260,7 +262,7 @@ exports.hasAuthorization = function(roles) {
 		_this.requiresLogin(req, res, function() {
 			if (_.intersection(req.user.roles, roles).length) {
 				return next();
-			} else {
+			} else {			    
 				return res.send(403, {
 					message: 'User is not authorized'
 				});

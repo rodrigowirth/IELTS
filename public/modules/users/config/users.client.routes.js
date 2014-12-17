@@ -7,7 +7,8 @@ angular.module('users').config(['$stateProvider',
 	    $stateProvider.
 	    state('listUsers', {
 	        url: '/users',
-	        templateUrl: 'modules/users/views/list-users.client.view.html'
+	        templateUrl: 'modules/users/views/list-users.client.view.html',
+	        role: 'admin'
 	    }).
 		state('profile', {
 		    url: '/settings/profile',
@@ -15,7 +16,8 @@ angular.module('users').config(['$stateProvider',
 		}).
 		state('password', {
 		    url: '/settings/password',
-		    templateUrl: 'modules/users/views/settings/change-password.client.view.html'
+		    templateUrl: 'modules/users/views/settings/change-password.client.view.html',
+		    role: 'admin'
 		});
 	}
 ]);

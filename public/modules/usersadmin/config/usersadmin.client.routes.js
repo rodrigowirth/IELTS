@@ -6,7 +6,8 @@ angular.module('usersadmin').config(['$stateProvider',
         $stateProvider.
 		state('listUsersadmin', {
 		    url: '/usersadmin',
-		    templateUrl: 'modules/usersadmin/views/list-usersadmin.client.view.html'
+		    templateUrl: 'modules/usersadmin/views/list-usersadmin.client.view.html',
+		    role: 'admin'
 		});
     }
 ]);

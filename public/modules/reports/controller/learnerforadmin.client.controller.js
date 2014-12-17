@@ -10,10 +10,10 @@ angular.module('Reports').controller('LearnerForAdminReportsController', ['$scop
 
             Applicants.query({}, function (applicants) {
                 $scope.applicants = applicants;
-            });
-
-            if (applicants.lenght > 0)
-                $scope.applicant = applicants[0];
+                
+                if (applicants.lenght > 0)
+                    $scope.applicant = applicants[0];
+            });            
 
         };
 
