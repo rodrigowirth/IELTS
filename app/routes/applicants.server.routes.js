@@ -14,6 +14,9 @@ module.exports = function (app) {
     
     app.route('/applicants/edition/:id')
         .get(applicants.listAvailablesForEdition);
+    
+    app.route('/applicants/email/:email')
+        .get(applicants.applicantByEmail);
 
     app.route('/applicants/:applicantId')
 		.get(applicants.read)
@@ -21,5 +24,5 @@ module.exports = function (app) {
 		.delete(users.requiresLogin, applicants.hasAuthorization, applicants.delete);    
 
     // Finish by binding the article middleware
-    app.param('applicantId', applicants.applicantByID);
+    app.param('applicantId', applicants.applicantByID);    
 };

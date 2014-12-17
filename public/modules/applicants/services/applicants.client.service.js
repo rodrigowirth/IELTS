@@ -8,6 +8,11 @@ angular.module('applicants').factory('Applicants', ['$resource',
 	    }, {
 	        update: {
 	            method: 'PUT'
+	        },
+	        getByEmail: {
+	            url: 'applicants/email/:email',
+	            method: 'GET',
+	            isArray: false
 	        }
 	    });
 	}

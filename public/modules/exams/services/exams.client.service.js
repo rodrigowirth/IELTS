@@ -15,7 +15,12 @@ angular.module('exams').factory('Exams', ['$resource',
 	                url: 'exams/edition/:id',
 	                method: 'GET',	                
 	                isArray: true
-	            }
+	            },
+                getByApplicant: {
+                    url: 'exams/applicant/:id',
+                    method: 'GET',	                
+                    isArray: true
+	}
 	        });
 	}
 ]);

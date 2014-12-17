@@ -181,12 +181,29 @@ exports.applicantByID = function (req, res, next, id) {
             return next(err);
 
         if (!applicant)
-            return next(new Error('Failed to load article ' + id));
+            return next(new Error('Failed to load applicant ' + id));
 
         req.applicant = applicant;
         next();
     });
 };
+
+exports.applicantByEmail = function (req, res, next) {
+    
+    var email = req.param('email');
+    console.log(email);
+
+    return Applicant.findOne({ email: email }).exec(function(err, applicant) {
+        if (err)
+            return next(err);
+        
+        if (!applicant)
+            return next(new Error('Failed to load applicant ' + email));
+        
+        res.jsonp(applicant);
+    });
+};
+
 
 /**
  * Applicant authorization middleware

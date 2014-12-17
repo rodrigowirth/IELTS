@@ -142,11 +142,12 @@ exports.listByEdition = function (req, res) {
         });
 };
 
-exports.listByUser = function (req, res) {
+exports.listByApplicant = function (req, res) {
     var applicantId = req.param('id');
 
     Exam.find({ 'applicant': applicantId })
         .populate('applicant', 'name')
+        .populate('edition', 'title')
         .sort('name')
         .exec(function (err, exams) {
             if (err) {

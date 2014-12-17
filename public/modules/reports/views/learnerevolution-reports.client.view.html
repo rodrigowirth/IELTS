@@ -1,0 +1,22 @@
+﻿<section data-ng-controller="LearnerEvolutionReportsController" data-ng-init="load()">
+    <div class="page-header">
+        <h1>{{applicant.name}} Evolution</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+
+            <div class="list-group">
+                <ul class="list-group">
+                    <li data-ng-repeat="edition in editions" ng-click="toggleEdition(edition)" class="list-group-item" style="cursor: pointer">                        
+                        <input type="checkbox" ng-checked="isSelected(edition)">
+                        {{edition.title}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-9">
+            <div google-chart chart="chartObject" class='chart' style="height: 500px; width: 100%"></div>
+        </div>
+    </div>
+</section>

@@ -15,8 +15,8 @@ module.exports = function (app) {
     app.route('/exams/edition/:id')
         .get(exams.listByEdition);
     
-    app.route('/exams/user/:id')
-        .get(exams.listByUser);
+    app.route('/exams/applicant/:id')
+        .get(exams.listByApplicant);
 
     app.route('/exams/:examId')
 		.get(exams.read)
