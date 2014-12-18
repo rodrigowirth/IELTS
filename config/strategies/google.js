@@ -9,17 +9,17 @@ var passport = require('passport'),
 	config = require('../config'),
 	users = require('../../app/controllers/users');
 
-module.exports = function() {
-	// Use google strategy
-	passport.use(new GoogleStrategy({
-			clientID: config.google.clientID,
-			clientSecret: config.google.clientSecret,
-			callbackURL: config.google.callbackURL,
-			passReqToCallback: true
-		},
+module.exports = function () {
+    // Use google strategy
+    passport.use(new GoogleStrategy({
+        clientID: config.google.clientID,
+        clientSecret: config.google.clientSecret,
+        callbackURL: config.google.callbackURL,
+        passReqToCallback: true
+    },
 		function (req, accessToken, refreshToken, profile, done) {
 
-		    if (profile.emails[0].value !== 'rodrigo.wirth@bravi.com.br' && profile.emails[0].value !== 'jon.holloway@bravi.com.br' && profile.emails[0].value !== 'wellington.grisa@bravi.com.br') {
+		    if (profile.emails[0].value.indexOf('@bravi.com.br') === -1) {
 		        return done({
 		            status: 401,
 		            message: 'You have to use a Bravi Software account.'
@@ -27,24 +27,24 @@ module.exports = function() {
 		    }
 
 		    // Set the provider data and include tokens
-			var providerData = profile._json;
-			providerData.accessToken = accessToken;
-			providerData.refreshToken = refreshToken;
+		    var providerData = profile._json;
+		    providerData.accessToken = accessToken;
+		    providerData.refreshToken = refreshToken;
 
-			// Create the user OAuth profile
-			var providerUserProfile = {
-				firstName: profile.name.givenName,
-				lastName: profile.name.familyName,
-				displayName: profile.displayName,
-				email: profile.emails[0].value,
-				username: profile.username,
-				provider: 'google',
-				providerIdentifierField: 'id',
-				providerData: providerData
-			};
+		    // Create the user OAuth profile
+		    var providerUserProfile = {
+		        firstName: profile.name.givenName,
+		        lastName: profile.name.familyName,
+		        displayName: profile.displayName,
+		        email: profile.emails[0].value,
+		        username: profile.username,
+		        provider: 'google',
+		        providerIdentifierField: 'id',
+		        providerData: providerData
+		    };
 
-			// Save the user OAuth profile
-			users.saveOAuthUserProfile(req, providerUserProfile, done);
+		    // Save the user OAuth profile
+		    users.saveOAuthUserProfile(req, providerUserProfile, done);
 		}
 	));
 };
