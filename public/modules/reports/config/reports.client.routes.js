@@ -10,12 +10,12 @@ angular.module('Reports').config(['$stateProvider',
             role: 'admin'
         }).
         state('reportEvolution', {
-            url: '/reports/evolution',
+            url: '/reports/progress',
             templateUrl: 'modules/reports/views/evolution-reports.client.view.html',
             role: 'admin'
         }).
         state('reportLearnerEvolution', {
-            url: '/reports/myevolution',
+            url: '/reports/myprogress',
             templateUrl: 'modules/reports/views/learnerevolution-reports.client.view.html'
         }).
         state('reportLearnerForAdmin', {

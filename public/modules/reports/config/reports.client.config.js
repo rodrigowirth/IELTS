@@ -6,8 +6,8 @@ angular.module('Reports').run(['Menus',
         // Set top bar menu items
         Menus.addMenuItem('topbar', 'Reports', 'reports', 'dropdown', '/reports(/create)?');
         Menus.addSubMenuItem('topbar', 'reports', 'Average', 'reports/editionavg', '', false, ['admin']);
-        Menus.addSubMenuItem('topbar', 'reports', 'Evolution', 'reports/evolution', '', false, ['admin']);
+        Menus.addSubMenuItem('topbar', 'reports', 'Bravi Progress', 'reports/progress', '', false, ['admin']);
         Menus.addSubMenuItem('topbar', 'reports', 'Applicants', 'reports/applicants', '', false, ['admin']);
-        Menus.addSubMenuItem('topbar', 'reports', 'My Evolution', 'reports/myevolution', '', false);
+        Menus.addSubMenuItem('topbar', 'reports', 'My Progress', 'reports/myprogress', '', false);
     }
 ]);
