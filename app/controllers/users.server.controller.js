@@ -314,11 +314,11 @@ exports.saveOAuthUserProfile = function(req, providerUserProfile, done) {
 
 						// And save the user
 						user.save(function(err) {
-							return done(err, user);
+						    return done(err, user, '/#!/reports/myprogress');
 						});
 					});
 				} else {
-					return done(err, user);
+				    return done(err, user, '/#!/reports/myprogress');
 				}
 			}
 		});
